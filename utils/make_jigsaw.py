@@ -36,6 +36,17 @@ def create_jigsaw_puzzle(input_image_path, save_path, image_size=256, patch_size
 
 	puzzle_image.save(save_path)
 
+def resize_images(image_dir, new_size=256):
+	image_names = os.listdir(image_dir)
+	image_names.sort()
+	image_paths = [os.path.join(image_dir, p) for p in image_names]
+
+	for path in tqdm(image_paths):
+		img = Image.open(path).convert("RGB")
+		img = img.resize((new_size, new_size))
+		img.save(path)
+	
+	print("Done!")
 
 def make_jigsaw_dataset(base_image_dir, output_dir):
 	image_names = os.listdir(base_image_dir)
@@ -56,5 +67,6 @@ if __name__ == "__main__":
 
 	base_dir = os.path.join(configs.dataset_dir, configs.dataset_name, "base_images")
 	output_dir = os.path.join(configs.dataset_dir, configs.dataset_name, "shuffled_images")
-	
-	make_jigsaw_dataset(base_dir, output_dir)
+
+	resize_images(base_dir)	
+	# make_jigsaw_dataset(base_dir, output_dir)
