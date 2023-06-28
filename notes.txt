@@ -1,0 +1,15 @@
+NOTES:
+------
+
+1. condition the denoising of the target image (unshuffled)
+   on the source image (shuffled) in latent space of an AE.
+
+2. use pretrained SD VQVAE and condition via concatenating
+   the latent codes of the source and target images.
+
+3. use a 1x1 convolution to make it usable as input to SD
+   pretrained UNet, and then fine-tune.
+
+4. key insights/choices seem to be the usage of discrete 
+   latent representations of the shuffled and unshuffled
+   images which can better aid this task than DDPMs.
