@@ -2,8 +2,8 @@
 
 > Jigsaw puzzle (shuffled image)
 
-![shuffled_image](../datasets/oxford_pets/shuffled_images/Abyssinian_1.jpg)
+![shuffled_image](./examples/Abyssinian_1_shuffled.jpg)
 
 > Solved puzzle (base image)
 
-![base_image](../datasets/oxford_pets/base_images/Abyssinian_1.jpg)
+![base_image](./examples/Abyssinian_1_base.jpg)
